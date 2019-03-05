@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Django2.2,Watchman,Python3.7,Centos6,">
 
 
 
@@ -115,17 +115,18 @@
 
 
 
-<meta name="description" content="This is my description.">
-<meta name="keywords" content="python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ccbang">
-<meta property="og:url" content="https://ccbang.github.io/archives/2019/02/index.html">
+<meta name="description" content="runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装123456789">
+<meta name="keywords" content="Django2.2,Watchman,Python3.7,Centos6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django2.2 with Watchman">
+<meta property="og:url" content="https://ccbang.github.io/2019/03/05/Django2-2-with-watchman/index.html">
 <meta property="og:site_name" content="ccbang">
-<meta property="og:description" content="This is my description.">
+<meta property="og:description" content="runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装123456789">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-03-05T07:25:20.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ccbang">
-<meta name="twitter:description" content="This is my description.">
+<meta name="twitter:title" content="Django2.2 with Watchman">
+<meta name="twitter:description" content="runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装123456789">
 
 
 
@@ -155,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="https://ccbang.github.io/archives/2019/02/">
+  <link rel="canonical" href="https://ccbang.github.io/2019/03/05/Django2-2-with-watchman/">
 
 
 
 
 
-  <title>Writing | ccbang</title>
+  <title>Django2.2 with Watchman | ccbang</title>
   
 
 
@@ -180,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,72 +297,159 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 2 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ccbang.github.io/blog/2019/03/05/Django2-2-with-watchman/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ccbang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ccbang">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/2019/02/22/hello-world/" itemprop="url">
-              
-                <span itemprop="name">hello world</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Django2.2 with Watchman</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-22T16:01:16+08:00" content="2019-02-22">
-          02-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-05T11:15:20+08:00">
+                2019-03-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p><code>runserver</code> can now use <a href="https://facebook.github.io/watchman/" target="_blank" rel="noopener">Watchman</a> to improve the performance of watching a large number of files for changes.</p>
+<h3 id="Python3-7"><a href="#Python3-7" class="headerlink" title="Python3.7"></a>Python3.7</h3><p>Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上<br>下载 openssl 版本包后解压指定路径安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ cd openssl-xxxx-dir</span><br><span class="line">$ ./config --prefix=/usr/local/openssl</span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line"># 如果你需要覆盖原来的openssl版本，请参考其他openssl安装教程</span><br><span class="line"></span><br><span class="line"># 安装Python3.7 指定openssl路径</span><br><span class="line">$ cd Python-3.7-dir</span><br><span class="line">$ ./configure --prefix=/usr/local/python37 --enable-shared --with-openssl=/usr/local/openssl</span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line">$ ln -s /usr/local/python37/bin/python3 /usr/sbin/</span><br></pre></td></tr></table></figure></p>
+<p>安装完 Django 后调试时发现输出如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python3 manage.py runserver</span><br><span class="line">Watchman unavailable: pywatchman not installed.</span><br><span class="line">Watching for file changes with StatReloader</span><br><span class="line">Performing system checks…</span><br></pre></td></tr></table></figure></p>
+<p>需要安装<code>watchman</code>及<code>pip install pywatchman</code></p>
+<h3 id="Watchman"><a href="#Watchman" class="headerlink" title="Watchman"></a>Watchman</h3><p>django2.2 增加了对 watchman 的支持，更好进行调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/facebook/watchman.git</span><br><span class="line">$ cd watchman</span><br><span class="line">$ git checkout v4.9.0  # the latest stable release</span><br><span class="line"># 使用 Centos6 的需要修改`Makefile.am` 参考https://github.com/facebook/watchman/issues/534</span><br><span class="line">$ ./autogen.sh</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure></p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="Watchman-安装遇到的问题"><a href="#Watchman-安装遇到的问题" class="headerlink" title="Watchman 安装遇到的问题:"></a><code>Watchman</code> 安装遇到的问题:</h4><p><code>configure: error: *** A compiler with support for C++11 language features is required.</code></p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 1. 安装yum centos-release-scl仓库:</span><br><span class="line">$ sudo yum install centos-release-scl</span><br><span class="line"></span><br><span class="line"># 启用 RHSCL 仓库:</span><br><span class="line">$ sudo yum-config-manager --enable rhel-server-rhscl-7-rpms</span><br><span class="line"></span><br><span class="line"># 2. 安装devtoolset-7开发工具:</span><br><span class="line">$ sudo yum install devtoolset-7</span><br><span class="line"></span><br><span class="line"># 3. 使用devtoolset-7环境:</span><br><span class="line">$ scl enable devtoolset-7 bash</span><br><span class="line"></span><br><span class="line"># 4. 这里会进入新的开发环境，可以使用gcc --version查看，重新编译安装watchman,</span><br><span class="line"># Ctrl + d 可以退出当前环境</span><br></pre></td></tr></table></figure>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Django2-2/" rel="tag"># Django2.2</a>
+          
+            <a href="/blog/tags/Watchman/" rel="tag"># Watchman</a>
+          
+            <a href="/blog/tags/Python3-7/" rel="tag"># Python3.7</a>
+          
+            <a href="/blog/tags/Centos6/" rel="tag"># Centos6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/02/22/hello-world/" rel="next" title="hello world">
+                <i class="fa fa-chevron-left"></i> hello world
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -369,6 +457,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -389,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -459,6 +560,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python3-7"><span class="nav-number">1.</span> <span class="nav-text">Python3.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watchman"><span class="nav-number">2.</span> <span class="nav-text">Watchman</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Watchman-安装遇到的问题"><span class="nav-number">3.1.</span> <span class="nav-text">Watchman 安装遇到的问题:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决办法"><span class="nav-number">3.2.</span> <span class="nav-text">解决办法:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -588,6 +705,10 @@
   
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

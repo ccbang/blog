@@ -311,6 +311,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ccbang.github.io/blog/2019/03/05/Django2-2-with-watchman/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ccbang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ccbang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2019/03/05/Django2-2-with-watchman/" itemprop="url">Django2.2 with Watchman</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-05T11:15:20+08:00">
+                2019-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>runserver</code> can now use <a href="https://facebook.github.io/watchman/" target="_blank" rel="noopener">Watchman</a> to improve the performance of watching a large number of files for changes.</p>
+<h3 id="Python3-7"><a href="#Python3-7" class="headerlink" title="Python3.7"></a>Python3.7</h3><p>Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上<br>下载 openssl 版本包后解压指定路径安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ cd openssl-xxxx-dir</span><br><span class="line">$ ./config --prefix=/usr/local/openssl</span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line"># 如果你需要覆盖原来的openssl版本，请参考其他openssl安装教程</span><br><span class="line"></span><br><span class="line"># 安装Python3.7 指定openssl路径</span><br><span class="line">$ cd Python-3.7-dir</span><br><span class="line">$ ./configure --prefix=/usr/local/python37 --enable-shared --with-openssl=/usr/local/openssl</span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line">$ ln -s /usr/local/python37/bin/python3 /usr/sbin/</span><br></pre></td></tr></table></figure></p>
+<p>安装完 Django 后调试时发现输出如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python3 manage.py runserver</span><br><span class="line">Watchman unavailable: pywatchman not installed.</span><br><span class="line">Watching for file changes with StatReloader</span><br><span class="line">Performing system checks…</span><br></pre></td></tr></table></figure></p>
+<p>需要安装<code>watchman</code>及<code>pip install pywatchman</code></p>
+<h3 id="Watchman"><a href="#Watchman" class="headerlink" title="Watchman"></a>Watchman</h3><p>django2.2 增加了对 watchman 的支持，更好进行调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/facebook/watchman.git</span><br><span class="line">$ cd watchman</span><br><span class="line">$ git checkout v4.9.0  # the latest stable release</span><br><span class="line"># 使用 Centos6 的需要修改`Makefile.am` 参考https://github.com/facebook/watchman/issues/534</span><br><span class="line">$ ./autogen.sh</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure></p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="Watchman-安装遇到的问题"><a href="#Watchman-安装遇到的问题" class="headerlink" title="Watchman 安装遇到的问题:"></a><code>Watchman</code> 安装遇到的问题:</h4><p><code>configure: error: *** A compiler with support for C++11 language features is required.</code></p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 1. 安装yum centos-release-scl仓库:</span><br><span class="line">$ sudo yum install centos-release-scl</span><br><span class="line"></span><br><span class="line"># 启用 RHSCL 仓库:</span><br><span class="line">$ sudo yum-config-manager --enable rhel-server-rhscl-7-rpms</span><br><span class="line"></span><br><span class="line"># 2. 安装devtoolset-7开发工具:</span><br><span class="line">$ sudo yum install devtoolset-7</span><br><span class="line"></span><br><span class="line"># 3. 使用devtoolset-7环境:</span><br><span class="line">$ scl enable devtoolset-7 bash</span><br><span class="line"></span><br><span class="line"># 4. 这里会进入新的开发环境，可以使用gcc --version查看，重新编译安装watchman,</span><br><span class="line"># Ctrl + d 可以退出当前环境</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ccbang.github.io/blog/2019/02/22/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -463,7 +589,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -476,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
