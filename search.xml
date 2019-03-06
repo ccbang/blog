@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[有趣的Python next()]]></title>
+    <url>%2Fblog%2F2019%2F03%2F06%2F%E6%9C%89%E8%B6%A3%E7%9A%84Python-next%2F</url>
+    <content type="text"><![CDATA[123&gt;&gt;&gt; data = [&#123;"name": "Python", "version": "3.7.2"&#125;, &#123;"name": "Django", "version": "2.2b1"&#125;]&gt;&gt;&gt; next((item for item in data if item["name"] == "Python"), &#123;&#125;)&#123;'name': 'Python', 'version': '3.7.2'&#125; 使用方法:next(iterator[, default])相当于class中的__next__获取iterator的一个元素。default： 当iterator耗尽时触发 StopIteration 会返回默认值 注意:如上例子，如果data中存在多个name为Python时，返回的是最后一个]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django2.2 with Watchman]]></title>
     <url>%2Fblog%2F2019%2F03%2F05%2FDjango2-2-with-watchman%2F</url>
     <content type="text"><![CDATA[runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装12345678910$ cd openssl-xxxx-dir$ ./config --prefix=/usr/local/openssl$ make &amp;&amp; make install# 如果你需要覆盖原来的openssl版本，请参考其他openssl安装教程# 安装Python3.7 指定openssl路径$ cd Python-3.7-dir$ ./configure --prefix=/usr/local/python37 --enable-shared --with-openssl=/usr/local/openssl$ make &amp;&amp; make install$ ln -s /usr/local/python37/bin/python3 /usr/sbin/ 安装完 Django 后调试时发现输出如下1234$ python3 manage.py runserverWatchman unavailable: pywatchman not installed.Watching for file changes with StatReloaderPerforming system checks… 需要安装watchman及pip install pywatchman Watchmandjango2.2 增加了对 watchman 的支持，更好进行调试12345678$ git clone https://github.com/facebook/watchman.git$ cd watchman$ git checkout v4.9.0 # the latest stable release# 使用 Centos6 的需要修改`Makefile.am` 参考https://github.com/facebook/watchman/issues/534$ ./autogen.sh$ ./configure$ make$ sudo make install 遇到的问题Watchman 安装遇到的问题:configure: error: *** A compiler with support for C++11 language features is required. 解决办法:1234567891011121314# 1. 安装yum centos-release-scl仓库:$ sudo yum install centos-release-scl# 启用 RHSCL 仓库:$ sudo yum-config-manager --enable rhel-server-rhscl-7-rpms# 2. 安装devtoolset-7开发工具:$ sudo yum install devtoolset-7# 3. 使用devtoolset-7环境:$ scl enable devtoolset-7 bash# 4. 这里会进入新的开发环境，可以使用gcc --version查看，重新编译安装watchman,# Ctrl + d 可以退出当前环境]]></content>
