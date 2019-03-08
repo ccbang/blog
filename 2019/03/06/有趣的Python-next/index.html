@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="ccbang">
 <meta property="og:description" content="能快速获得列表中的一个元素123&amp;gt;&amp;gt;&amp;gt; data = [&amp;#123;&quot;name&quot;: &quot;Python&quot;, &quot;version&quot;: &quot;3.7.2&quot;&amp;#125;, &amp;#123;&quot;name&quot;: &quot;Django&quot;, &quot;version&quot;: &quot;2.2b1&quot;&amp;#125;]&amp;gt;&amp;gt;&amp;gt; next((item for item in data if item[&quot;name&quot;] == &quot;Pyt">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-06T12:27:21.917Z">
+<meta property="og:updated_time" content="2019-03-08T03:35:21.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有趣的Python next()">
 <meta name="twitter:description" content="能快速获得列表中的一个元素123&amp;gt;&amp;gt;&amp;gt; data = [&amp;#123;&quot;name&quot;: &quot;Python&quot;, &quot;version&quot;: &quot;3.7.2&quot;&amp;#125;, &amp;#123;&quot;name&quot;: &quot;Django&quot;, &quot;version&quot;: &quot;2.2b1&quot;&amp;#125;]&amp;gt;&amp;gt;&amp;gt; next((item for item in data if item[&quot;name&quot;] == &quot;Pyt">
@@ -380,7 +380,7 @@
       
         <h4 id="能快速获得列表中的一个元素"><a href="#能快速获得列表中的一个元素" class="headerlink" title="能快速获得列表中的一个元素"></a>能快速获得列表中的一个元素</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = [&#123;<span class="string">"name"</span>: <span class="string">"Python"</span>, <span class="string">"version"</span>: <span class="string">"3.7.2"</span>&#125;, &#123;<span class="string">"name"</span>: <span class="string">"Django"</span>, <span class="string">"version"</span>: <span class="string">"2.2b1"</span>&#125;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>next((item <span class="keyword">for</span> item <span class="keyword">in</span> data <span class="keyword">if</span> item[<span class="string">"name"</span>] == <span class="string">"Python"</span>), &#123;&#125;)</span><br><span class="line">&#123;<span class="string">'name'</span>: <span class="string">'Python'</span>, <span class="string">'version'</span>: <span class="string">'3.7.2'</span>&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h3><p><code>next(iterator[, default])</code><br>相当于<code>class</code>中的<code>__next__</code><br>获取iterator的一个元素。<br>default： 当iterator耗尽时触发 StopIteration 会返回默认值</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><p>如上例子，如果<code>data</code>中存在多个<code>name</code>为<code>Python</code>时，返回的是最后一个</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><p>如上例子，如果<code>data</code>中存在多个<code>name</code>为<code>Python</code>时，返回的是第一个</p>
 
       
     </div>

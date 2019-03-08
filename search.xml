@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[有趣的Python next()]]></title>
     <url>%2Fblog%2F2019%2F03%2F06%2F%E6%9C%89%E8%B6%A3%E7%9A%84Python-next%2F</url>
-    <content type="text"><![CDATA[能快速获得列表中的一个元素123&gt;&gt;&gt; data = [&#123;"name": "Python", "version": "3.7.2"&#125;, &#123;"name": "Django", "version": "2.2b1"&#125;]&gt;&gt;&gt; next((item for item in data if item["name"] == "Python"), &#123;&#125;)&#123;'name': 'Python', 'version': '3.7.2'&#125; 使用方法:next(iterator[, default])相当于class中的__next__获取iterator的一个元素。default： 当iterator耗尽时触发 StopIteration 会返回默认值 注意:如上例子，如果data中存在多个name为Python时，返回的是最后一个]]></content>
+    <content type="text"><![CDATA[能快速获得列表中的一个元素123&gt;&gt;&gt; data = [&#123;"name": "Python", "version": "3.7.2"&#125;, &#123;"name": "Django", "version": "2.2b1"&#125;]&gt;&gt;&gt; next((item for item in data if item["name"] == "Python"), &#123;&#125;)&#123;'name': 'Python', 'version': '3.7.2'&#125; 使用方法:next(iterator[, default])相当于class中的__next__获取iterator的一个元素。default： 当iterator耗尽时触发 StopIteration 会返回默认值 注意:如上例子，如果data中存在多个name为Python时，返回的是第一个]]></content>
       <tags>
         <tag>Python</tag>
         <tag>next</tag>
