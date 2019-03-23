@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Django2.2,Watchman,Python3.7,Centos6,">
+  <meta name="keywords" content="Centos6,rpmbuild,">
 
 
 
@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装123456789">
-<meta name="keywords" content="Django2.2,Watchman,Python3.7,Centos6">
+<meta name="description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build 3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
+<meta name="keywords" content="Centos6,rpmbuild">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Django2.2 with Watchman">
-<meta property="og:url" content="https://ccbang.github.io/2019/03/05/Django2-2-with-watchman/index.html">
+<meta property="og:title" content="Centos 6 rpmbuild">
+<meta property="og:url" content="https://ccbang.github.io/2019/03/23/Centos-6-rpmbuild/index.html">
 <meta property="og:site_name" content="ccbang">
-<meta property="og:description" content="runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装123456789">
+<meta property="og:description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build 3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-05T07:25:20.468Z">
+<meta property="og:updated_time" content="2019-03-23T14:37:20.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Django2.2 with Watchman">
-<meta name="twitter:description" content="runserver can now use Watchman to improve the performance of watching a large number of files for changes. Python3.7Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上下载 openssl 版本包后解压指定路径安装123456789">
+<meta name="twitter:title" content="Centos 6 rpmbuild">
+<meta name="twitter:description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build 3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
 
 
 
@@ -156,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="https://ccbang.github.io/2019/03/05/Django2-2-with-watchman/">
+  <link rel="canonical" href="https://ccbang.github.io/2019/03/23/Centos-6-rpmbuild/">
 
 
 
 
 
-  <title>Django2.2 with Watchman | ccbang</title>
+  <title>Centos 6 rpmbuild | ccbang</title>
   
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ccbang.github.io/blog/2019/03/05/Django2-2-with-watchman/">
+    <link itemprop="mainEntityOfPage" href="https://ccbang.github.io/blog/2019/03/23/Centos-6-rpmbuild/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ccbang">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Django2.2 with Watchman</h1>
+          <h1 class="post-title" itemprop="name headline">Centos 6 rpmbuild</h1>
         
 
         <div class="post-meta">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-05T11:15:20+08:00">
-                2019-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:18:01+08:00">
+                2019-03-23
               </time>
             
 
@@ -387,13 +387,16 @@
       
 
       
-        <p><code>runserver</code> can now use <a href="https://facebook.github.io/watchman/" target="_blank" rel="noopener">Watchman</a> to improve the performance of watching a large number of files for changes.</p>
-<h3 id="Python3-7"><a href="#Python3-7" class="headerlink" title="Python3.7"></a>Python3.7</h3><p>Python3.7 安装时遇到_ssl 模块没法编译成功，需要安装 openssl-1.0.2 版本以上<br>下载 openssl 版本包后解压指定路径安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ cd openssl-xxxx-dir</span><br><span class="line">$ ./config --prefix=/usr/local/openssl</span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line"># 如果你需要覆盖原来的openssl版本，请参考其他openssl安装教程</span><br><span class="line"></span><br><span class="line"># 安装Python3.7 指定openssl路径</span><br><span class="line">$ cd Python-3.7-dir</span><br><span class="line">$ ./configure --prefix=/usr/local/python37 --enable-shared --with-openssl=/usr/local/openssl</span><br><span class="line">$ make &amp;&amp; make install</span><br><span class="line">$ ln -s /usr/local/python37/bin/python3 /usr/sbin/</span><br></pre></td></tr></table></figure></p>
-<p>安装完 Django 后调试时发现输出如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ python3 manage.py runserver</span><br><span class="line">Watchman unavailable: pywatchman not installed.</span><br><span class="line">Watching for file changes with StatReloader</span><br><span class="line">Performing system checks…</span><br></pre></td></tr></table></figure></p>
-<p>需要安装<code>watchman</code>及<code>pip install pywatchman</code></p>
-<h3 id="Watchman"><a href="#Watchman" class="headerlink" title="Watchman"></a>Watchman</h3><p>django2.2 增加了对 watchman 的支持，更好进行调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/facebook/watchman.git</span><br><span class="line">$ cd watchman</span><br><span class="line">$ git checkout v4.9.0  # the latest stable release</span><br><span class="line"># 使用 Centos6 的需要修改`Makefile.am` 参考https://github.com/facebook/watchman/issues/534</span><br><span class="line">$ ./autogen.sh</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure></p>
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><h4 id="Watchman-安装遇到的问题"><a href="#Watchman-安装遇到的问题" class="headerlink" title="Watchman 安装遇到的问题:"></a><code>Watchman</code> 安装遇到的问题:</h4><p><code>configure: error: *** A compiler with support for C++11 language features is required.</code></p>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 1. 安装yum centos-release-scl仓库:</span><br><span class="line">$ sudo yum install centos-release-scl</span><br><span class="line"></span><br><span class="line"># 启用 RHSCL 仓库:</span><br><span class="line">$ sudo yum-config-manager --enable rhel-server-rhscl-7-rpms</span><br><span class="line"></span><br><span class="line"># 2. 安装devtoolset-7开发工具:</span><br><span class="line">$ sudo yum install devtoolset-7</span><br><span class="line"></span><br><span class="line"># 3. 使用devtoolset-7环境:</span><br><span class="line">$ scl enable devtoolset-7 bash</span><br><span class="line"></span><br><span class="line"># 4. 这里会进入新的开发环境，可以使用gcc --version查看，重新编译安装watchman,</span><br><span class="line"># Ctrl + d 可以退出当前环境</span><br></pre></td></tr></table></figure>
+        <h3 id="Centos-6-自定义打包-rpm"><a href="#Centos-6-自定义打包-rpm" class="headerlink" title="Centos 6 自定义打包 rpm"></a>Centos 6 自定义打包 rpm</h3><p>需要的工具:<br>1.Centos 6<br>2.rpm-build 3.系统普通用户</p>
+<p><code>yum install rpm-build</code></p>
+<p>简单的打包过程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su libanglong</span><br><span class="line"><span class="meta">$</span> echo "%_topdir        /home/$(id -un)/rpmbuild" &gt;~/.rpmmacros  #自定义制作目录</span><br><span class="line"><span class="meta">$</span> mkdir -pv ~/rpmbuild/&#123;BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS&#125;  #创建基本需要目录</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 基本需要目录可以使用一下命令获得</span><br><span class="line"><span class="meta">$</span> rpmbuild --showrc | grep topdir</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编写spec文件</span><br><span class="line"><span class="meta">$</span> vim ~/rpmbuild/SPECS/xxxx.spec  # 具体写法可以百度，后面有简单说明,后面贴上mysq的简单实例</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> rpmbuild -ba ~/rpmbuild/SPECS/xxxx.spec # 生成二进制文件和rpm包</span><br></pre></td></tr></table></figure>
+<p>rpmbuild 简单参数说明:<br>rpmbuild [args] xxx.spec<br>-ba 既生成 src.rpm 又生成二进制 rpm<br>-bs 只生成 src 的 rpm<br>-bb 只生二进制的 rpm<br>-bp 执行到 pre<br>-bc 执行到 build 段<br>-bi 执行 install 段<br>-bl 检测有文件没包含</p>
+<p>可以进行简单的测试先 rpmbuild -bp ,再-bc 再-bi 如果没问题再执行 -ba</p>
+<p>演示:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>## %define mysql_user mysql</span><br><span class="line"><span class="meta">#</span>名字为tar包的名字</span><br><span class="line">Name:           mysql</span><br><span class="line"><span class="meta">#</span>版本号，一定要与tar包的一致哦</span><br><span class="line">Version:        5.6.23</span><br><span class="line"><span class="meta">#</span>释出号，也就是第几次制作rpm</span><br><span class="line">Release:        1%&#123;?dist&#125;</span><br><span class="line"><span class="meta"> #</span>软件包简介，最好不要超过50字符</span><br><span class="line">Summary:        mysql 5.6.23  rpm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>组名，可以通过less /usr/share/doc/rpm-4.8.0/GROUPS 选择合适组</span><br><span class="line">Group:          System Environment/Daemons</span><br><span class="line"><span class="meta">#</span>许可，GPL还是BSD等</span><br><span class="line">License:        GPLv2</span><br><span class="line"><span class="meta">#</span>可以写一个网址</span><br><span class="line">URL:            https://github.com/ccbang/</span><br><span class="line">Packager:       ccbang</span><br><span class="line">Vendor:         domain.com</span><br><span class="line">Source0:        %&#123;name&#125;-%&#123;version&#125;.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 这里特殊，取消不必要的依赖例如安装时会报错perl(lib:mtr_xxx)</span><br><span class="line">Autoreq:    no</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>如果需要补丁，依次写</span><br><span class="line"><span class="meta">#</span>patch0:            a.patch</span><br><span class="line">BuildRoot:      %_topdir/BUILDROOT</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>制作过程中用到的软件包</span><br><span class="line">BuildRequires:  gcc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>软件运行需要的软件包，也可以指定最低版本如 bash &gt;= 1.1.1</span><br><span class="line">Requires:       openssl,libunwind,libunwind-devel,gperftools,gperftools-libs,gperftools-devel</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>软件包描述，尽情的写吧</span><br><span class="line"><span class="meta">%</span>description</span><br><span class="line">It is a mysql 5.6 for txitech.com                          #描述内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##  2.The Prep section 准备阶段,主要目的解压source并cd进去</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>这个宏开始</span><br><span class="line"><span class="meta">%</span>prep</span><br><span class="line"><span class="meta">#</span>这个宏的作用静默模式解压并cd</span><br><span class="line"><span class="meta">%</span>setup -q</span><br><span class="line"><span class="meta">#</span>%%patch0 -p1                                       #如果需要在这打补丁，依次写</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##  3.The Build Section 编译制作阶段，主要目的就是编译</span><br><span class="line"><span class="meta">%</span>build</span><br><span class="line">cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \</span><br><span class="line">-DMYSQL_DATADIR=/usr/local/mysql/data \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/tmp/mysql.sock \</span><br><span class="line">-DWITH_SSL=yes \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \</span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \</span><br><span class="line">-DEXTRA_CHARSETS=utf8,gbk,gb2132 \</span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_DEBUG=0 \</span><br><span class="line">-DENABLE_DOWNLOADS=1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>make后面的意思是：如果就多处理器的话make时并行编译</span><br><span class="line">make %&#123;?_smp_mflags&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##  4.Install section  安装阶段</span><br><span class="line"><span class="meta">%</span>install</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>先删除原来的安装的，如果你不是第一次安装的话</span><br><span class="line">rm -rf %&#123;buildroot&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>DESTDIR指定安装的目录，而不是真实的安装目录</span><br><span class="line"><span class="meta">#</span>INSTALL_ROOT也是指安装目录。例如php</span><br><span class="line">make install DESTDIR=%&#123;buildroot&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> %%pre        #rpm安装前制行的脚本或者命令</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> %%post       #安装后执行的脚本</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> %%preun      #卸载前执行的脚本</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> %%postun     #卸载后执行的脚本</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##  5.clean section 清理段,删除buildroot</span><br><span class="line"></span><br><span class="line"><span class="meta">%</span>clean</span><br><span class="line">rm -rf %&#123;buildroot&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##  6.file section rpm包需要打包的文件</span><br><span class="line"><span class="meta">%</span>files</span><br><span class="line"><span class="meta">#</span>设定默认权限，如果下面没有指定权限，则继承默认</span><br><span class="line"><span class="meta">%</span>defattr (-,root,root,0755)</span><br><span class="line"><span class="meta">#</span>/etc/           #下面的内容要根据你在%&#123;rootbuild&#125;下生成的来写</span><br><span class="line">/usr/</span><br><span class="line"><span class="meta">#</span>/var/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>##  7.chagelog section  改变日志段</span><br><span class="line"><span class="meta">%</span>changelog</span><br><span class="line">* Fri  Dec 29 2012 mysql 5.6.23 ccbang create</span><br><span class="line">- Initial version</span><br></pre></td></tr></table></figure>
+<p>spec 参数说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Summary:        rpm的内容概要</span><br><span class="line">Name:           rpm的名称，后面可使用%&#123;name&#125;的方式引用</span><br><span class="line">Version:        rpm的实际版本号，例如：1.2.5等，后面可使用%&#123;version&#125;引用</span><br><span class="line">Release:        发布序列号，例如:1等，标明第几次打包，后面可使用%&#123;release&#125;引用</span><br><span class="line">License:        软件授权方式，通常就是GPL</span><br><span class="line">Group:          软件分组</span><br><span class="line">Source:         源代码包，可以带多个用Source1、Source2等源，后面也可以用%&#123;source1&#125;、%&#123;source2&#125;引用</span><br><span class="line">Build Arch:     指编译的目标处理器架构，noarch标识不指定，但通常都是以/usr/lib/rpm/marcros中的内容为默认值</span><br><span class="line">BuildRoot:      这个是安装或编译时使用的“虚拟目录”，考虑到多用户的环境，一般定义为：</span><br><span class="line">                %&#123;_tmppath&#125;/%&#123;name&#125;-%&#123;version&#125;-%&#123;release&#125;-root</span><br><span class="line">                或%&#123;_tmppath&#125;/%&#123;name&#125;-%&#123;version&#125;-%&#123;release&#125;-buildroot-%(%&#123;__id_u&#125; -n&#125;</span><br><span class="line">                该参数非常重要，因为在生成rpm的过程中，执行make install时就会把软件安装到上述的路径中，在打包的时候，同样依赖“虚拟目录”为“根目录”进行操作。</span><br><span class="line">                后面可使用$RPM_BUILD_ROOT 方式引用。</span><br><span class="line">URL:            软件的主页</span><br><span class="line">Packager:       打包者的信息</span><br><span class="line">Requires:       该rpm包所依赖的软件包名称，可以用&gt;=或&lt;=表示大于或小于某一特定版本，例如：</span><br><span class="line">                libpng-devel &gt;= 1.0.20</span><br><span class="line">                &quot;&gt;=&quot;号两边需用空格隔开，而不同软件名称也用空格分开</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%description    软件的详细说明</span><br><span class="line">%prep           预处理脚本</span><br><span class="line">%setup          通常是从/usr/src/redhat/SOURCES里的包解压到/usr/src/redhat/BUILD/%&#123;name&#125;-%&#123;version&#125;中。</span><br><span class="line">                一般用%setup -c就可以了，但有两种情况：一就是同时编译多个源码包，二就是源码的tar包的名称与解压出来的目录不一致，此时，就需要使用-n参数指定一下了。</span><br><span class="line">%build          开始构建包,在/usr/src/redhat/BUILD目录中</span><br><span class="line">%install        开始把软件安装到虚拟的根目录中,这个很重要，因为如果这里的路径不对的话，则下面%files中寻找文件的时候就会失败。</span><br><span class="line">                可以使用：make DESTDIR=$RPM_BUILD_ROOT install</span><br><span class="line">                或者使用常规的系统命令 cp -rf filename $RPM_BUILD_ROOT/</span><br><span class="line">%clean          清理临时文件,注意区分$RPM_BUILD_ROOT和$RPM_BUILD_DIR：</span><br><span class="line">                $RPM_BUILD_ROOT是指开头定义的BuildRoot，而$RPM_BUILD_DIR通常就是指/usr/src/redhat/BUILD，其中，前面的才是%files需要的。</span><br><span class="line">%pre            rpm安装前执行的脚本</span><br><span class="line">%post           rpm安装后执行的脚本</span><br><span class="line">%preun          rpm卸载前执行的脚本</span><br><span class="line">%postun         rpm卸载后执行的脚本</span><br><span class="line">                %preun %postun 的区别是前者在升级rpm包的时候会执行，后者在升级rpm包的时候不会执行</span><br><span class="line">%files          定义那些文件或目录会放入rpm中,下面的路径不是系统的绝对路径而是$RPM_BUILD_ROOT下的路径</span><br><span class="line">%defattr        指定安装rpm包后的文件属性，分别是(mode,owner,group)，-表示默认值，对文本文件是0644，可执行文件是0755</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -411,13 +414,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/Django2-2/" rel="tag"># Django2.2</a>
-          
-            <a href="/blog/tags/Watchman/" rel="tag"># Watchman</a>
-          
-            <a href="/blog/tags/Python3-7/" rel="tag"># Python3.7</a>
-          
             <a href="/blog/tags/Centos6/" rel="tag"># Centos6</a>
+          
+            <a href="/blog/tags/rpmbuild/" rel="tag"># rpmbuild</a>
           
         </div>
       
@@ -430,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/02/22/hello-world/" rel="next" title="hello world">
-                <i class="fa fa-chevron-left"></i> hello world
+              <a href="/blog/2019/03/06/有趣的Python-next/" rel="next" title="有趣的Python next()">
+                <i class="fa fa-chevron-left"></i> 有趣的Python next()
               </a>
             
           </div>
@@ -439,10 +438,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2019/03/06/有趣的Python-next/" rel="prev" title="有趣的Python next()">
-                有趣的Python next() <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python3-7"><span class="nav-number">1.</span> <span class="nav-text">Python3.7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watchman"><span class="nav-number">2.</span> <span class="nav-text">Watchman</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Watchman-安装遇到的问题"><span class="nav-number">3.1.</span> <span class="nav-text">Watchman 安装遇到的问题:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决办法"><span class="nav-number">3.2.</span> <span class="nav-text">解决办法:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos-6-自定义打包-rpm"><span class="nav-number">1.</span> <span class="nav-text">Centos 6 自定义打包 rpm</span></a></li></ol></div>
             
 
           </div>
