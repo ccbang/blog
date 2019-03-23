@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build 3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
+<meta name="description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
 <meta name="keywords" content="Centos6,rpmbuild">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos 6 rpmbuild">
 <meta property="og:url" content="https://ccbang.github.io/2019/03/23/Centos-6-rpmbuild/index.html">
 <meta property="og:site_name" content="ccbang">
-<meta property="og:description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build 3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
+<meta property="og:description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-23T14:37:20.690Z">
+<meta property="og:updated_time" content="2019-03-23T14:42:10.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos 6 rpmbuild">
-<meta name="twitter:description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build 3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
+<meta name="twitter:description" content="Centos 6 自定义打包 rpm需要的工具:1.Centos 62.rpm-build3.系统普通用户 yum install rpm-build 简单的打包过程 1234567891011$ su libanglong$ echo &quot;%_topdir        /home/$(id -un)/rpmbuild&quot; &amp;gt;~/.rpmmacros  #自定义制作目录$ mkdir -pv">
 
 
 
@@ -387,7 +387,7 @@
       
 
       
-        <h3 id="Centos-6-自定义打包-rpm"><a href="#Centos-6-自定义打包-rpm" class="headerlink" title="Centos 6 自定义打包 rpm"></a>Centos 6 自定义打包 rpm</h3><p>需要的工具:<br>1.Centos 6<br>2.rpm-build 3.系统普通用户</p>
+        <h3 id="Centos-6-自定义打包-rpm"><a href="#Centos-6-自定义打包-rpm" class="headerlink" title="Centos 6 自定义打包 rpm"></a>Centos 6 自定义打包 rpm</h3><p>需要的工具:<br>1.Centos 6<br>2.rpm-build<br>3.系统普通用户</p>
 <p><code>yum install rpm-build</code></p>
 <p>简单的打包过程</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su libanglong</span><br><span class="line"><span class="meta">$</span> echo "%_topdir        /home/$(id -un)/rpmbuild" &gt;~/.rpmmacros  #自定义制作目录</span><br><span class="line"><span class="meta">$</span> mkdir -pv ~/rpmbuild/&#123;BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS&#125;  #创建基本需要目录</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 基本需要目录可以使用一下命令获得</span><br><span class="line"><span class="meta">$</span> rpmbuild --showrc | grep topdir</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编写spec文件</span><br><span class="line"><span class="meta">$</span> vim ~/rpmbuild/SPECS/xxxx.spec  # 具体写法可以百度，后面有简单说明,后面贴上mysq的简单实例</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> rpmbuild -ba ~/rpmbuild/SPECS/xxxx.spec # 生成二进制文件和rpm包</span><br></pre></td></tr></table></figure>
